@@ -1,17 +1,4 @@
-const canvas = document.getElementById('canvas1')
-const ctx = canvas.getContext("2d")
-const CANVAS_WIDTH = canvas.width = 600
-const CANVAS_HEIGHT = canvas.height = 600
-
-const playerImage = new Image()
-playerImage.src = 'shadow_dog.png'
-const spriteWidth = 575
-const spriteHeight = 523
 let playerState = 'run'
-
-let gameFrame = 0
-const staggerFrames = 5
-const spriteAnimations = []
 const animationStates = [
   {
     name: 'idle',
@@ -54,6 +41,34 @@ const animationStates = [
     frames: 4,
   },
 ]
+const dropdown = document.getElementById('animations')
+animationStates.forEach(animation => {
+  let option = document.createElement('option')
+  const displayName = animation.name.substring(0, 1).toUpperCase() + animation.name.substring(1, animation.name.length)
+  option.text = displayName
+  option.value = animation.name
+  if (animation.name == 'run') {
+    option.setAttribute('selected', '');
+  }
+  dropdown.appendChild(option)
+})
+dropdown.addEventListener('change', function (e) {
+  playerState = e.target.value
+})
+
+const canvas = document.getElementById('canvas1')
+const ctx = canvas.getContext("2d")
+const CANVAS_WIDTH = canvas.width = 600
+const CANVAS_HEIGHT = canvas.height = 600
+
+const playerImage = new Image()
+playerImage.src = 'shadow_dog.png'
+const spriteWidth = 575
+const spriteHeight = 523
+
+let gameFrame = 0
+const staggerFrames = 5
+const spriteAnimations = []
 
 animationStates.forEach((state, index) => {
   let frames = {

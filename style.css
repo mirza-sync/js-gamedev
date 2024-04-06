@@ -1,0 +1,10 @@
+body {
+  display: grid;
+  place-items: center;
+}
+
+label,
+select,
+option {
+  font-size: 25px;
+}
