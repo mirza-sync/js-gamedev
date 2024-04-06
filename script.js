@@ -7,6 +7,8 @@ const playerImage = new Image()
 playerImage.src = 'shadow_dog.png'
 const spriteWidth = 575
 const spriteHeight = 523
+let playerState = 'run'
+
 let gameFrame = 0
 const staggerFrames = 5
 const spriteAnimations = []
@@ -20,8 +22,36 @@ const animationStates = [
     frames: 7,
   },
   {
-    name: 'land',
+    name: 'fall',
     frames: 7,
+  },
+  {
+    name: 'run',
+    frames: 7,
+  },
+  {
+    name: 'dizzy',
+    frames: 11,
+  },
+  {
+    name: 'sit',
+    frames: 5,
+  },
+  {
+    name: 'roll',
+    frames: 7,
+  },
+  {
+    name: 'bite',
+    frames: 7,
+  },
+  {
+    name: 'ko',
+    frames: 12,
+  },
+  {
+    name: 'getHit',
+    frames: 4,
   },
 ]
 
@@ -43,9 +73,9 @@ console.log(spriteAnimations);
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
-  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations['idle'].loc.length
-  let frameX = spriteAnimations['idle'].loc[position].x
-  let frameY = spriteAnimations['idle'].loc[position].y
+  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length
+  let frameX = spriteAnimations[playerState].loc[position].x
+  let frameY = spriteAnimations[playerState].loc[position].y
   ctx.drawImage(playerImage,
     frameX, frameY,
     spriteWidth, spriteHeight,
