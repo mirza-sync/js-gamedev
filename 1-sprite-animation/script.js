@@ -87,11 +87,12 @@ console.log(spriteAnimations);
 
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
   let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length
   let frameX = spriteAnimations[playerState].loc[position].x
   let frameY = spriteAnimations[playerState].loc[position].y
-  ctx.drawImage(playerImage,
+  // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
+  ctx.drawImage(
+    playerImage,
     frameX, frameY,
     spriteWidth, spriteHeight,
     0, 0, spriteWidth, spriteHeight
