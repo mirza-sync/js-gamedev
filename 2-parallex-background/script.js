@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas1')
 const ctx = canvas.getContext('2d')
 const CANVAS_WIDTH = canvas.width = 800
 const CANVAS_HEIGHT = canvas.height = 700
-let gameSpeed = 15
+let gameSpeed = 10
 
 const backgroundLayer1 = new Image()
 backgroundLayer1.src = 'assets/layer-1.png'
@@ -49,8 +49,20 @@ class Layer {
   }
 }
 
+const layer1 = new Layer(backgroundLayer1, 0.2)
+const layer2 = new Layer(backgroundLayer2, 0.4)
+const layer3 = new Layer(backgroundLayer3, 0.6)
+const layer4 = new Layer(backgroundLayer4, 0.8)
+const layer5 = new Layer(backgroundLayer5, 1)
+
+const layers = [layer1, layer2, layer3, layer4, layer5]
+
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  layers.forEach(layer => {
+    layer.update()
+    layer.draw()
+  })
   requestAnimationFrame(animate)
 }
 
