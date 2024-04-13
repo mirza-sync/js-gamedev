@@ -5,6 +5,9 @@ const CANVAS_HEIGHT = canvas.height = 600
 const numberOfEnemies = 100
 let enemiesArray = []
 
+const enemyImage = new Image()
+enemyImage.src = 'assets/enemy1.png'
+
 class Enemy {
   constructor() {
     this.x = Math.random() * CANVAS_WIDTH
@@ -20,7 +23,7 @@ class Enemy {
   }
 
   draw() {
-    ctx.fillRect(this.x, this.y, this.width, this.height)
+    ctx.drawImage(enemyImage, this.x, this.y)
   }
 }
 
