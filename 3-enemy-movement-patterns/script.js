@@ -11,12 +11,12 @@ class Enemy {
   constructor() {
     this.image = new Image()
     this.image.src = 'assets/enemy1.png'
-    this.x = Math.random() * CANVAS_WIDTH
-    this.y = Math.random() * CANVAS_HEIGHT
     this.spriteWidth = 293
     this.spriteHeight = 155
     this.width = this.spriteWidth / 2.5
     this.height = this.spriteHeight / 2.5
+    this.x = Math.random() * (CANVAS_WIDTH - this.width)
+    this.y = Math.random() * (CANVAS_HEIGHT - this.height)
     // this.speed = (Math.random() * 4) - 2 // Generate random numbers between -2 and +2
     this.frame = 0
     this.flapSpeed = Math.floor((Math.random() * 3) + 1)
