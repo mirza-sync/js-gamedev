@@ -7,11 +7,10 @@ const numberOfEnemies = 100
 let enemiesArray = []
 let gameFrame = 0
 
-const enemyImage = new Image()
-enemyImage.src = 'assets/enemy1.png'
-
 class Enemy {
   constructor() {
+    this.image = new Image()
+    this.image.src = 'assets/enemy1.png'
     this.x = Math.random() * CANVAS_WIDTH
     this.y = Math.random() * CANVAS_HEIGHT
     this.spriteWidth = 293
@@ -33,7 +32,7 @@ class Enemy {
   }
 
   draw() {
-    ctx.drawImage(enemyImage, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
+    ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
       this.x, this.y, this.width, this.height)
   }
 }
