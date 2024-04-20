@@ -17,14 +17,14 @@ class Enemy {
     this.height = this.spriteHeight / 2.5
     this.x = Math.random() * (CANVAS_WIDTH - this.width)
     this.y = Math.random() * (CANVAS_HEIGHT - this.height)
-    // this.speed = (Math.random() * 4) - 2 // Generate random numbers between -2 and +2
+    this.speed = (Math.random() * 4) + 1 // Generate random numbers between 1 and 5
     this.frame = 0
     this.flapSpeed = Math.floor((Math.random() * 3) + 1)
   }
 
   update() {
-    this.x += Math.random() * 5 - 2.5
-    this.y += Math.random() * 5 - 2.5
+    this.x -= this.speed
+    // this.y += Math.random() * 5 - 2.5
     // animate sprites
     if (gameFrame % this.flapSpeed === 0) {
       this.frame > 4 ? this.frame = 0 : this.frame++
