@@ -10,9 +10,9 @@ let gameFrame = 0
 class Enemy {
   constructor() {
     this.image = new Image()
-    this.image.src = 'assets/enemy1.png'
-    this.spriteWidth = 293
-    this.spriteHeight = 155
+    this.image.src = 'assets/enemy2.png'
+    this.spriteWidth = 266
+    this.spriteHeight = 188
     this.width = this.spriteWidth / 2.5
     this.height = this.spriteHeight / 2.5
     this.x = Math.random() * (CANVAS_WIDTH - this.width)
